@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "bw-poc-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/bwPoc/BwPocWebPart.js",
+          "manifest": "./src/webparts/bwPoc/BwPocWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "BwPocWebPartStrings": "lib/webparts/bwPoc/loc/{locale}.js"
+  }
+}
