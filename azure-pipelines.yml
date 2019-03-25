@@ -16,6 +16,19 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+    gulp clean
+    gulp bundle --ship
+    gulp package-solution --ship
+  displayName: 'Build and package the solution'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.SourcesDirectory)/sharepoint/solution/bw-poc.sppkg' 
+    artifactName: 'SPFX sppkg' 
+  displayName: 'Publish Build sppkg artifacts'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.SourcesDirectory)/devops/release/' 
+    artifactName: 'Office 365 CLI scripts' 
+  displayName: 'Publish build office 365 CLI artifacts'
