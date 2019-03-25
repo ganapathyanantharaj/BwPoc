@@ -16,6 +16,11 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    npm install
+    npm test
+  displayName: 'npm install and test'
+
+- script: |
     gulp clean
     gulp bundle --ship
     gulp package-solution --ship
